@@ -1,84 +1,116 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Jai Seva Medical Store</title>
+<title>Jan Seva Medical Store</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
 
 body{
-margin:0;
-font-family:Arial, sans-serif;
-background:#f2f6ff;
+background:linear-gradient(135deg,#e3f2fd,#ffffff);
 text-align:center;
 }
 
 header{
-background:linear-gradient(45deg,#0a7cff,#00c6ff);
+background:linear-gradient(45deg,#1565c0,#0d47a1);
 color:white;
 padding:25px;
 font-size:26px;
 font-weight:bold;
-animation:fadeIn 2s ease-in;
+letter-spacing:1px;
+}
+
+.sub{
+font-size:15px;
+margin-top:5px;
+opacity:0.9;
+}
+
+.section{
+padding:30px 15px;
 }
 
 .card{
 background:white;
-margin:20px;
+margin:20px auto;
 padding:20px;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-animation:slideUp 1.5s ease-in-out;
+max-width:420px;
+border-radius:18px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
 }
 
 img{
-width:90%;
-max-width:400px;
+width:100%;
 border-radius:12px;
-margin:15px 0;
+margin-top:10px;
+}
+
+h2{
+color:#1565c0;
+margin-bottom:10px;
+}
+
+ul{
+list-style:none;
+}
+
+li{
+background:#e3f2fd;
+margin:8px 0;
+padding:10px;
+border-radius:8px;
 }
 
 .button{
 display:inline-block;
-padding:12px 25px;
-margin:10px;
+padding:12px 22px;
+margin:8px;
 border-radius:8px;
 text-decoration:none;
 color:white;
 font-weight:bold;
 }
 
-.call{
-background:#0a7cff;
+.call{background:#1565c0;}
+.whatsapp{background:#25D366;}
+
+input, textarea{
+width:95%;
+padding:10px;
+margin:8px 0;
+border-radius:8px;
+border:1px solid #ccc;
 }
 
-.whatsapp{
-background:#25D366;
+.submit{
+background:#0d47a1;
+color:white;
+border:none;
+padding:12px;
+border-radius:8px;
+cursor:pointer;
 }
 
-.map{
+iframe{
 width:100%;
-height:300px;
-border-radius:10px;
-margin-top:15px;
+height:250px;
+border:0;
+border-radius:12px;
 }
 
 .footer{
-background:#111;
+background:#0d47a1;
 color:white;
 padding:15px;
 margin-top:30px;
+font-size:14px;
 }
-
-@keyframes fadeIn{
-from{opacity:0;}
-to{opacity:1;}
-}
-
-@keyframes slideUp{
-from{transform:translateY(50px);opacity:0;}
-to{transform:translateY(0);opacity:1;}
-}
-
 </style>
 </head>
 
@@ -86,38 +118,72 @@ to{transform:translateY(0);opacity:1;}
 
 <header>
 Jan Seva Medical Store
-<br>
-<small>Open 24/7</small>
+<div class="sub">Open 24/7 | Trusted Medical Shop</div>
 </header>
+
+<div class="section">
 
 <div class="card">
 <h2>Our Shop</h2>
-<img src="shop.jpg" alt="Shop Photo">
-<p>Providing trusted and quality medicines for your family.</p>
+<img src="shop.jpg">
 </div>
 
 <div class="card">
 <h2>Owner Details</h2>
-<img src="owner.jpg" alt="Owner Photo">
 <p><b>Name:</b> Madhav Mehta</p>
 <p><b>Phone:</b> +91 70899 90224</p>
 
 <a class="button call" href="tel:+917089990224">Call Now</a>
-<a class="button whatsapp" href="https://wa.me/917089990224" target="_blank">WhatsApp</a>
+<a class="button whatsapp" href="https://wa.me/917089990224">WhatsApp</a>
+</div>
 
+<div class="card">
+<h2>Medicine Categories</h2>
+<ul>
+<li>Fever & Pain Relief</li>
+<li>Cold & Cough</li>
+<li>Vitamins & Supplements</li>
+<li>Baby Care</li>
+<li>Personal Care</li>
+<li>First Aid Products</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Order on WhatsApp</h2>
+<form onsubmit="sendToWhatsApp(); return false;">
+<input type="text" id="name" placeholder="Your Name" required>
+<input type="text" id="phone" placeholder="Mobile Number" required>
+<textarea id="medicine" placeholder="Medicines you need" required></textarea>
+<button class="submit">Send Order</button>
+</form>
 </div>
 
 <div class="card">
 <h2>Our Location</h2>
-<iframe 
-class="map"
-src="https://www.google.com/maps?q=India&output=embed">
-</iframe>
+<iframe src="https://www.google.com/maps?q=22.6608231,74.9798542&output=embed"></iframe>
+</div>
+
 </div>
 
 <div class="footer">
-© 2026 Jai Seva Medical Store | All Rights Reserved
+© 2026 Jan Seva Medical Store | All Rights Reserved
 </div>
+
+<script>
+function sendToWhatsApp(){
+var name=document.getElementById("name").value;
+var phone=document.getElementById("phone").value;
+var medicine=document.getElementById("medicine").value;
+
+var url="https://wa.me/917089990224?text="
++"Name: "+name+"%0a"
++"Phone: "+phone+"%0a"
++"Medicines: "+medicine;
+
+window.open(url,'_blank');
+}
+</script>
 
 </body>
 </html>
